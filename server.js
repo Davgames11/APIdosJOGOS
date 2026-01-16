@@ -1656,26 +1656,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-export const initializeAdminUser = async () => {
-  try {
-    const adminExists = usuarios.find((u) => u.role === "admin");
-    if (!adminExists) {
-      const hashedPassword = await hashPassword("admin123");
-      usuarios.push({
-        id: 1,
-        username: "admin",
-        email: "admin@gamehub.com",
-        password: hashedPassword,
-        role: "admin",
-        createdAt: new Date().toISOString(),
-      });
-      console.log("👤 Usuário admin criado: admin / admin123");
-    }
-
-    // usuário admin inicializado
-  } catch (err) {
-    console.error("Erro inicializando usuário admin:", err);
-  }
-};
-
 export default app;
