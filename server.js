@@ -13,7 +13,7 @@ const SALT_ROUNDS = 10;
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://26.109.248.8:3000/"],
+    origin: [process.env.LOCALHOST, process.env.NETWORK],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
